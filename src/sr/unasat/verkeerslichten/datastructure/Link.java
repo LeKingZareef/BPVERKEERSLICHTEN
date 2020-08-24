@@ -4,11 +4,12 @@ import sr.unasat.verkeerslichten.entities.Voertuig;
 
 public class Link {
     Voertuig voertuig;
+    int priority;
     public Link next; // next link in list
 
     // -------------------------------------------------------------
     public Link(Voertuig voertuig) // constructor
-    { this.voertuig = new Voertuig(voertuig.getKenteken(), voertuig.getPriority()); }
+    { this.voertuig = new Voertuig(voertuig.getNummer(), voertuig.getPriority()); }
     // -------------------------------------------------------------
     public void displayLink() // display this link
     {
