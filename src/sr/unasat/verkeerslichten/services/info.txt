@@ -1,0 +1,21 @@
+In the services package there are custom methods that can't be placed in the other packages.
+Example:
+ public void returnToMenu(User loggedInUser){
+        Menu menu = new Menu(loggedInUser);
+        for (int i  = 0; i <3; i++){
+            System.out.println("");
+        }
+        System.out.println("Press 'R' to return to menu");
+        while (true){ //infinte loop
+            String returnKey = userInput.next();
+            if(returnKey.toUpperCase().equals("R")){
+                menu.showMenu();
+                break;
+            }else{
+                errorMessage("Key not recognised");
+            }
+        }
+    }
+Author: Zareef Soetodrono.
+Date:   19 november 2019.
+Email:  zareef.soetodrono@gmail.com

@@ -1,0 +1,43 @@
+The repository package handles data from the table.
+In the repository you will write all query related methods.
+Example:
+public ClassName methodName(int logId){
+        ClassName className = null;
+        PreparedStatement stmt = null;
+        String sql = "SELECT * FROM table WHERE id = ?";
+
+        try {
+            stmt = connection.prepareStatement(sql);
+            stmt.setInt(1,logId);
+            ResultSet rs = stmt.executeQuery();
+            if(!rs.isBeforeFirst()){
+                return null;
+            }else{
+                rs.next();
+                className = new ClassName(rs.getInt("id"),rs.getInt("id"),rs.getInt("user_id"));
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }finally {
+            try {
+                if(stmt != null){
+                    stmt.close();
+                }
+            }catch (SQLException e){
+
+            }
+            try {
+                if(connection != null){
+                    stmt.close();
+                }
+            }catch (SQLException e){
+
+            }
+        }
+        return mealLog;
+    }
+
+
+Author: Zareef Soetodrono.
+Date:   19 november 2019.
+Email:  zareef.soetodrono@gmail.com

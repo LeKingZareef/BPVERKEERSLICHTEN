@@ -1,0 +1,17 @@
+Typically, an entity represents a table in a relational database, and each entity instance corresponds to a row in that table.
+Here comes:
+1. The getters and setters of the entity.
+2. The overrides
+@Override
+    public String toString() {
+        return "ClassName{" +
+                "id=" + id +
+                ", entities='" + entities + '\'' +
+                ", entities=" + entities +
+                '}';
+    }
+
+
+Author: Zareef Soetodrono.
+Date:   19 november 2019.
+Email:  zareef.soetodrono@gmail.com
