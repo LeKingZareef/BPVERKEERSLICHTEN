@@ -1,11 +1,11 @@
 package sr.unasat.verkeerslichten.entities;
 
-import sr.unasat.verkeerslichten.datastructure.LinkedList;
+import sr.unasat.verkeerslichten.datastructure.LinkQueue;
 
 public class Wegdek {
     private String wegdekCode;
 
-    private LinkedList wegdekQueue = new LinkedList();
+    private LinkQueue wegdekQueue = new LinkQueue();
 
     public Wegdek(String wegdekCode) {
         this.wegdekCode = wegdekCode;
@@ -15,11 +15,11 @@ public class Wegdek {
         return wegdekCode;
     }
     public void fillWegdek(Voertuig voertuig) {
-        this.wegdekQueue.insertFirst(voertuig);
+        this.wegdekQueue.insert(voertuig);
     }
 
-    public LinkedList getWegdekQueue() {
-        return this.wegdekQueue;
+    public LinkQueue getVoertuigenQueue() {
+        return wegdekQueue;
     }
 
 }

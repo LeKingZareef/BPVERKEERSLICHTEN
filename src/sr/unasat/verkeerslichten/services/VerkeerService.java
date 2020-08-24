@@ -8,40 +8,24 @@ public class VerkeerService {
 
     public void prio () {
         for(int wegdekIndex = 0; wegdekIndex < Constants.STOPLICHT.length; ++wegdekIndex) {
-            int items = Constants.WEGDEK[wegdekIndex].getWegdekQueue().findSize();
 
-            for(int i = 0; i < items; ++i) {
-                //int voertuig priority.
-                int vrtPrio = Constants.WEGDEK[wegdekIndex].getWegdekQueue().getPrio();
-                String vrtKent = Constants.WEGDEK[wegdekIndex].getWegdekQueue().getKenteken();
+//            Constants.WEGDEK[wegdekIndex].getWegdekQueue().deleteKey(new Voertuig("PG 1124", 3));
 
-                Constants.WEGDEK[wegdekIndex].getWegdekQueue().displayList();
-
-
-//                if (this.wegdekLeeg(Constants.WEGDEK[wegdekIndex])) {
-//                    System.out.println("\n****Alle auto's op wegdek " + Constants.WEGDEK[wegdekIndex].getWegdekCode() + " zijn opgereden****");
-//                }
+//                int vrtPrio = Constants.WEGDEK[wegdekIndex].getWegdekQueue().getPrio();
+//                String vrtKent = Constants.WEGDEK[wegdekIndex].getWegdekQueue().getKenteken();
 //
-                if (vrtPrio == 3) {
-                    Constants.WEGDEK[wegdekIndex].getWegdekQueue().deleteKey(new Voertuig(vrtKent, vrtPrio));
-                    break;
-                }
+//                System.out.println(vrtPrio);
+//                System.out.println(vrtKent);
 
-//                Constants.WEGDEK[wegdekIndex].getWegdekQueue().displayList();
+//            int items = Constants.WEGDEK[wegdekIndex].getWegdekQueue().findSize();
+//
+//            for(int i = 0; i < items; ++i) {
+//                int autoNummer = Constants.WEGDEK[wegdekIndex].getWegdekQueue().displPrio();
+//
+//            }
 
-//                Voertuig priorityVoertuig = Constants.WEGDEK[wegdekIndex].getVoertuigenQueue().remove();
-
-//                Constants.WEGDEK[wegdekIndex].getVoertuigenStack().push(priorityVoertuig);
-//                this.priorityQueue.insert(priorityVoertuig);
-
-
-
-            }
         }
 
-//        for(wegdekIndex = 0; wegdekIndex <= this.priorityQueue.getnItems() + 1; ++wegdekIndex) {
-//            System.out.println("De " + this.priorityQueue.remove().getKentekenNummer() + " rijdt op");
-//        }
     }
 
     public void verkeerslichtOrder () {
@@ -49,26 +33,26 @@ public class VerkeerService {
             switch (wegdekIndex) {
                 case 0:
                     System.out.println(Constants.WEGDEK[wegdekIndex].getWegdekCode());
-                    Constants.WEGDEK[wegdekIndex].getWegdekQueue().displayList();
+                    Constants.WEGDEK[wegdekIndex].getVoertuigenQueue().displayQueue();
                     break;
                 case 1:
-                    System.out.println(Constants.WEGDEK[wegdekIndex].getWegdekCode());
-                    Constants.WEGDEK[wegdekIndex].getWegdekQueue().displayList();
+                    System.out.println("\n" + Constants.WEGDEK[wegdekIndex].getWegdekCode());
+                    Constants.WEGDEK[wegdekIndex].getVoertuigenQueue().displayQueue();
                     break;
                 case 2:
-                    System.out.println(Constants.WEGDEK[wegdekIndex].getWegdekCode());
-                    Constants.WEGDEK[wegdekIndex].getWegdekQueue().displayList();
+                    System.out.println("\n" + Constants.WEGDEK[wegdekIndex].getWegdekCode());
+                    Constants.WEGDEK[wegdekIndex].getVoertuigenQueue().displayQueue();
                     break;
                 case 3:
-                    System.out.println(Constants.WEGDEK[wegdekIndex].getWegdekCode());
-                    Constants.WEGDEK[wegdekIndex].getWegdekQueue().displayList();
+                    System.out.println("\n" + Constants.WEGDEK[wegdekIndex].getWegdekCode());
+                    Constants.WEGDEK[wegdekIndex].getVoertuigenQueue().displayQueue();
                     break;
             }
         }
     }
 
     private boolean wegdekLeeg(Wegdek wegdek) {
-        return wegdek.getWegdekQueue().isEmpty();
+        return wegdek.getVoertuigenQueue().isEmpty();
     }
 
 
