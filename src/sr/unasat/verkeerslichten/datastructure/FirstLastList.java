@@ -49,10 +49,16 @@ public class FirstLastList {
         }
 //        System.out.println("");
     }
+
+
+
     // -------------------------------------------------------------
-    public String peekFront(){
-        return first.voertuig.getKenteken();
+    public int peekFront(){
+        return first.voertuig.getPriority();
     }
+
+
+
 }
 
 

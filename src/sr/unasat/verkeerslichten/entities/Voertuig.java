@@ -6,6 +6,7 @@ package sr.unasat.verkeerslichten.entities;
 import java.util.Random;
 
 public class Voertuig {
+    Wegdek wegdek;
     private String kenteken;
     private int priority;
     private int nummer;

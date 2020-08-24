@@ -3,19 +3,48 @@ package sr.unasat.verkeerslichten.datastructure;
 import sr.unasat.verkeerslichten.entities.Voertuig;
 
 public class PriorityQueue {
-    private int maxSize;
-    private Voertuig[] queArray;
-    private int front;
-    private int rear;
-    private int nItems;
+    private Node head;
+    private int totalSize;
 
-    public PriorityQueue(int maxSize) {
-        this.maxSize = maxSize;
-        queArray = new Voertuig[this.maxSize];
-        front = 0;
-        rear = -1;
-        nItems = 0;
+    public PriorityQueue() {
+        head = null;
+        totalSize = 0;
     }
 
-    
+
+    public void insert(Voertuig voertuig) {
+        Node ng = new Node();
+        ng.setData(voertuig);
+        ng.setPriority(voertuig.getPriority());
+
+        if (head == null) {
+            head = ng;
+        } else {
+            ng.setNext(head);
+            head.setPrev(ng);
+            head = ng;
+        }
+
+        totalSize++;
+    }
+
+
+    public Voertuig remove() {
+        Node temp = head;
+        (head) = (head).next;
+        totalSize--;
+        return temp.voertuig;
+    }
+
+
+    public int size() {
+        return totalSize;
+    }
+
+    public boolean isEmpty() {
+        return (totalSize == 0);
+    }
+
+
+
 }

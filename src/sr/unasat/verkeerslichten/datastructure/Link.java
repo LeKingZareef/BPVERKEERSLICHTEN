@@ -4,7 +4,6 @@ import sr.unasat.verkeerslichten.entities.Voertuig;
 
 public class Link {
     Voertuig voertuig;
-    int priority;
     public Link next; // next link in list
 
     // -------------------------------------------------------------
@@ -15,4 +14,6 @@ public class Link {
     {
         System.out.print("\nVoertuig " + this.voertuig.getKenteken() + ", met als priority "+ this.voertuig.getPriority() + " rijd door");
     }
+
+
 }
