@@ -2,7 +2,6 @@ package sr.unasat.verkeerslichten.entities;
 
 import sr.unasat.verkeerslichten.datastructure.LinkQueue;
 import sr.unasat.verkeerslichten.datastructure.LinkStack;
-import sr.unasat.verkeerslichten.services.VerkeerService;
 
 public class Wegdek {
     private String wegdekCode;

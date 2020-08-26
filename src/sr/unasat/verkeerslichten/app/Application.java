@@ -60,9 +60,11 @@ public class Application {
 
 
         VerkeerService verkeerService = new VerkeerService();
-//        verkeerService.verkeerslichtOrder();
-        verkeerService.prio();
-//        verkeerService.verkeerslichtOrder();
+        verkeerService.priorities();
+        verkeerService.verkeerslichtOrder();
+        verkeerService.reverse();
+
+
 
 
     }
