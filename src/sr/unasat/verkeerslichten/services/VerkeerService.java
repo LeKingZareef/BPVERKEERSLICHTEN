@@ -1,6 +1,7 @@
 package sr.unasat.verkeerslichten.services;
 
 import sr.unasat.verkeerslichten.datastructure.LinkPriorityQueue;
+import sr.unasat.verkeerslichten.datastructure.Node;
 import sr.unasat.verkeerslichten.entities.Voertuig;
 import sr.unasat.verkeerslichten.entities.Wegdek;
 import static sr.unasat.verkeerslichten.util.Constants.WEGDEK;
@@ -9,13 +10,17 @@ import static sr.unasat.verkeerslichten.util.Constants.STOPLICHT;
 public class VerkeerService {
     LinkPriorityQueue priorityQueue = new LinkPriorityQueue();
 
+    Node theTree = new Node("PK00-00", null);
+
+
     public void priorities() {
 
 
-        for (int wegdekIndex = 0; wegdekIndex < STOPLICHT.length; wegdekIndex++) {                                      //op elk wegdek wordt nagegaan als er priority voertuigen zijn
+        for (int wegdekIndex = 0; wegdekIndex < STOPLICHT.length; wegdekIndex++) {
             int items = WEGDEK[wegdekIndex].getVoertuigenQueue().size();
 
-            for (int i = 0; i < items; i++) {                                                               //iterate door de wegdek queue en zoek naar door het eerste item in de queue te bekijken
+            for (int i = 0; i < items; i++) {
+
                 int autoNummer = WEGDEK[wegdekIndex].getVoertuigenQueue().peekFirst();
 
                 if (autoNummer <= 3) {
@@ -27,7 +32,7 @@ public class VerkeerService {
             }
 
         }
-        for (int i = 0; i <= priorityQueue.getnItems() + 1; i++) {                                                                                 //na alle priority voertuigen gevonden te hebben, laat ze oprijden
+        for (int i = 0; i <= priorityQueue.getnItems() + 1; i++) {
             System.out.println("De " + priorityQueue.remove().getKenteken() + " rijdt op ");
             System.out.println();
         }
@@ -107,6 +112,7 @@ public class VerkeerService {
 
     public void oprijden (Wegdek wegdek) {
         Voertuig voertuig = wegdek.getVoertuigenQueue().remove();
+
         System.out.println("Voertuig " + voertuig.getKenteken() + " rijdt op");
         wegdek.getVoertuigenStack().push(voertuig);
     }
@@ -209,6 +215,8 @@ public class VerkeerService {
 
     private void terugRijden(Wegdek wegdek){
         Voertuig voertuig = wegdek.getVoertuigenStack().pop();
+        theTree.put(voertuig.getKenteken(), voertuig);
+        theTree.buildTree(theTree);
         System.out.println("Voertuig " + voertuig.getKenteken() + " rijd terug");
         wegdek.getVoertuigenQueue().insertReverse(voertuig);
     }
@@ -220,6 +228,19 @@ public class VerkeerService {
         return false;
     }
 
+
+    public void search (String kenteken) {
+        Voertuig voertuig= theTree.get(kenteken);
+        if (voertuig!= null){
+            System.out.println(voertuig.getKenteken());
+        }else{
+            System.out.println("Geen auto Gevonden!");
+        }
+
+//        System.out.println();
+//
+//        System.out.println(voertuig.getPriority());
+    }
 
 
 

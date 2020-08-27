@@ -1,6 +1,7 @@
 package sr.unasat.verkeerslichten.app;
 
 import sr.unasat.verkeerslichten.datastructure.LinkQueue;
+import sr.unasat.verkeerslichten.datastructure.Node;
 import sr.unasat.verkeerslichten.entities.Voertuig;
 import sr.unasat.verkeerslichten.services.VerkeerService;
 
@@ -63,9 +64,8 @@ public class Application {
         verkeerService.priorities();
         verkeerService.verkeerslichtOrder();
         verkeerService.reverse();
-
-
-
+        verkeerService.search("Ambulance");
+        verkeerService.search("Brandweer");
 
     }
 }
